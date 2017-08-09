@@ -5,8 +5,9 @@
     @if(count($orders)>0)
         @foreach($orders as $order)
             <div class="well">
-                <h3><a href="/customerorders/{{$order->id}}">{{$order->id}}<a></h3>
-                <small>Place on {{$order->created_at}}</small>
+                <h4><a href="/customerorders/{{$order->id}}">{{$order->id}}</a></h3>
+                <p><small>FROM {{$order->fromAdd}} TO {{$order->toAdd}} AT {{$order->time}}</small></p>
+                <p><small>Place on {{$order->created_at}}</small></p>
             </div>        
         @endforeach
 

@@ -71,7 +71,8 @@ class CustomerOrdersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $order = CustomerOrder::find($id);
+        return view('customerorders.edit')->with('order', $order);
     }
 
     /**
@@ -83,7 +84,19 @@ class CustomerOrdersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'fromAdd' => 'required',
+            'toAdd' => 'required',
+            'time' => 'required'
+        ]);
+        // Create new order
+        $order = CustomerOrder::find($id);
+        $order->fromAdd = $request->input('fromAdd');
+        $order->toAdd = $request->input('toAdd');
+        $order->time = $request->input('time');
+        $order->save();
+
+        return redirect('/customerorders')->with('success', 'Order Updated');
     }
 
     /**
@@ -94,6 +107,8 @@ class CustomerOrdersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order = CustomerOrder::find($id);
+        $order->delete();
+        return redirect('/customerorders')->with('success', 'Order Removed');
     }
 }
