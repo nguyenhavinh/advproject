@@ -94,6 +94,7 @@ class CustomerOrdersController extends Controller
         $order->fromAdd = $request->input('fromAdd');
         $order->toAdd = $request->input('toAdd');
         $order->time = $request->input('time');
+        $order->customer_id = auth()->customer()->id;
         $order->save();
 
         return redirect('/customerorders')->with('success', 'Order Updated');
