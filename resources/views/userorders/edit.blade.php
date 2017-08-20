@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>CustomerOrders Edit</h1>
-    {!! Form::open(['action'=> ['CustomerOrdersController@update', $order->id], 'method' => 'PUT']) !!}
+    <h1>UserOrders Edit</h1>
+    {!! Form::open(['action'=> ['UserOrdersController@update', $order->id], 'method' => 'PUT']) !!}
         <div class="form-group">
             {{Form::label('fromAdd', 'From Address')}}
             {{Form::text('fromAdd', $order->fromAdd, ['class'=>'form-control', 'placeholder'=>'In put the pickup Address'])}}

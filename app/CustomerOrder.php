@@ -11,4 +11,8 @@ class CustomerOrder extends Model
     // Primary key
     public $primaryKey = 'id';
 
+    public function customer(){
+        return $this->belongsTo('App\Customer');
+    }
+
 }
