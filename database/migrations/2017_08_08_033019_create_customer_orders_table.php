@@ -15,6 +15,9 @@ class CreateCustomerOrdersTable extends Migration
     {
         Schema::create('customer_orders', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('fromAdd');
+            $table->string('toAdd');
+            $table->string('time');
             $table->timestamps();
         });
     }

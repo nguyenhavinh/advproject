@@ -17,13 +17,18 @@ Route::get('/about', 'PagesController@about');
 
 Route::get('/careers', 'PagesController@careers');
 
+Route::get('/customer', 'PagesController@customers');
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+
 
 Auth::routes();
 
 Route::resource('customerorders', 'CustomerOrdersController');
 
 Route::resource('userorders', 'UserOrdersController');
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'AdminController@index');

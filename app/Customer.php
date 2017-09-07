@@ -15,7 +15,7 @@ class Customer extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'address', 'email', 'phonenumber', 'password',
     ];
 
     /**
@@ -27,7 +27,7 @@ class Customer extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function customerOrder(){
+    public function customerOrders(){
         return $this->hasMany('App\CustomerOrder');
     }
 }
