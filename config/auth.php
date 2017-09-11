@@ -41,10 +41,40 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-
-        'api' => [
+        'user' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+        'user-api' => [
             'driver' => 'token',
             'provider' => 'users',
+        ],
+        
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+        'admin-api' => [
+            'driver' => 'token',
+            'provider' => 'admins',
+        ],
+
+        'customer' => [
+            'driver' => 'session',
+            'provider' => 'customers',
+        ],
+        'customer-api' => [
+            'driver' => 'token',
+            'provider' => 'customers',
+        ],
+
+        'driver' => [
+            'driver' => 'session',
+            'provider' => 'drivers',
+        ],
+        'driver-api' => [
+            'driver' => 'token',
+            'provider' => 'drivers',
         ],
     ],
 
