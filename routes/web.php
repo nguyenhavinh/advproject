@@ -13,13 +13,13 @@
 
 Route::get('/', 'PagesController@index');
 
-Route::get('/about', 'PagesController@about');
+Route::get('/about', 'PagesController@about')->name('home');
 
 Route::get('/careers', 'PagesController@careers');
 
 Route::get('/mycustomers', 'PagesController@mycustomers');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index');
 
 
 

@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest:user');
+        $this->middleware('auth:user');
     }
 
     /**
