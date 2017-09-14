@@ -24,6 +24,6 @@ class CustomerLoginController extends Controller
         if (Auth::guard('customer')->attempt(['email'=>$request->email, 'password'=>$request->password], $request->remember)){
             return redirect()->route('customer.dashboard');
         }
-        return redirect()->back()->withInput($request->only('email', 'remember'));      
+        return redirect()->back()->withInput($request->only('email', 'remember'))->withErrors("These credentials do not match our records.")->withErrors("These credentials do not match our records.");      
     }
 }

@@ -17,9 +17,9 @@ Route::get('/about', 'PagesController@about');
 
 Route::get('/careers', 'PagesController@careers');
 
-Route::get('/customer', 'PagesController@customers');
+Route::get('/mycustomers', 'PagesController@mycustomers');
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index')->name('home');
 
 
 
@@ -39,7 +39,7 @@ Route::prefix('admin')->group(function(){
 });
 
 Route::prefix('user')->group(function(){
-    Route::get('/', 'UserController@index')->name('user.dashboard');
+    Route::get('/', 'UserController@index')->name('user.dashboard');    
 });
 
 Route::prefix('driver')->group(function(){

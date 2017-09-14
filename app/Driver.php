@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Driver extends Authenticatable
 {
     use Notifiable;
-
+    protected $guard = 'driver';
     /**
      * The attributes that are mass assignable.
      *

@@ -24,7 +24,7 @@ class DriverLoginController extends Controller
         if (Auth::guard('driver')->attempt(['email'=>$request->email, 'password'=>$request->password], $request->remember)){
             return redirect()->route('driver.dashboard');
         }
-        return redirect()->back()->withInput($request->only('email', 'remember'));      
+        return redirect()->back()->withInput($request->only('email', 'remember'))->withErrors("These credentials do not match our records.");      
     }
     
 }

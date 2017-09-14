@@ -12,8 +12,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/sticky-footer.css') }}" rel="stylesheet">
 </head>
-<body>
     <div id="app">
         @include('inc.navbar')
         <div class='container'>
@@ -21,7 +21,11 @@
             @yield('content')
         </div>
     </div>
-
+    <footer class="footer">
+        <div class="container">            
+            <p class="text-center">2017</p>            
+        </div>
+    </footer>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>

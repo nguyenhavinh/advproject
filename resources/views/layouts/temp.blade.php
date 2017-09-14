@@ -21,6 +21,11 @@
         <div class="container">
             @include('inc.messages')
             @yield('content')
-        </div>        
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <span class="text-muted">Place sticky footer content here.</span>
+            </div>
+        </footer>        
     </body>
 </html>
