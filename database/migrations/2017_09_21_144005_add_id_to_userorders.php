@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddIdToCustomerorders extends Migration
+class AddIdToUserorders extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddIdToCustomerorders extends Migration
      */
     public function up()
     {
-        Schema::table('customer_orders', function($table){
-            $table->integer('customer_id');
+        Schema::table('user_orders', function($table){
+            $table->integer('user_id');
             $table->integer('driver_id');
         });
     }
@@ -26,8 +26,8 @@ class AddIdToCustomerorders extends Migration
      */
     public function down()
     {
-        Schema::table('customer_orders', function($table){
-            $table->dropColumn('customer_id');
+        Schema::table('user_orders', function($table){
+            $table->dropColumn('user_id');
             $table->dropColumn('driver_id');
         });
     }

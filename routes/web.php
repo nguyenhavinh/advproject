@@ -26,8 +26,8 @@ Route::get('/home', 'HomeController@index');
 Auth::routes();
 
 Route::resource('customerorders', 'CustomerOrdersController');
-
 Route::resource('userorders', 'UserOrdersController');
+
 
 Auth::routes();
 Route::prefix('admin')->group(function(){
@@ -36,6 +36,15 @@ Route::prefix('admin')->group(function(){
     Route::get('/register', 'Auth\AdminRegisterController@showRegisterForm')->name('admin.register');
     Route::post('/register', 'Auth\AdminRegisterController@register')->name('admin.register.submit');
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
+    Route::delete('/destroyUser/{id}', 'AdminController@destroyUser');
+    Route::get('/editUser/{id}', 'AdminController@showUser');
+    Route::put('/editUser/{id}', 'AdminController@updateUser');
+    Route::delete('/destroyCustomer/{id}', 'AdminController@destroyCustomer');
+    Route::get('/editCustomer/{id}', 'AdminController@showCustomer');
+    Route::put('/editCustomer/{id}', 'AdminController@updateCustomer');
+    Route::delete('/destroyDriver/{id}', 'AdminController@destroyDriver');
+    Route::get('/editDriver/{id}', 'AdminController@showDriver');
+    Route::put('/editDrivers/{id}', 'AdminController@updateDriver');
 });
 
 Route::prefix('user')->group(function(){

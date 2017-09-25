@@ -15,4 +15,8 @@ class CustomerOrder extends Model
         return $this->belongsTo('App\Customer');
     }
 
+    public function driver(){
+        return $this->belongsTo('App\Driver');
+    }
+
 }
