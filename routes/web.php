@@ -48,7 +48,7 @@ Route::prefix('admin')->group(function(){
 });
 
 Route::prefix('user')->group(function(){
-    Route::get('/', 'UserController@index')->name('user.dashboard');    
+       
 });
 
 Route::prefix('driver')->group(function(){
@@ -57,6 +57,8 @@ Route::prefix('driver')->group(function(){
     Route::get('/register', 'Auth\DriverRegisterController@showRegisterForm')->name('driver.register');
     Route::post('/register', 'Auth\DriverRegisterController@register')->name('driver.register.submit');
     Route::get('/', 'DriverController@index')->name('driver.dashboard');
+    Route::get('/showCusOrder/{id}', 'DriverController@showCus');
+    Route::get('/showUseOrder/{id}', 'DriverController@showUse');
 });
 
 Route::prefix('customer')->group(function(){
@@ -64,5 +66,7 @@ Route::prefix('customer')->group(function(){
     Route::post('/login', 'Auth\CustomerLoginController@login')->name('customer.login.submit');
     Route::get('/register', 'Auth\CustomerRegisterController@showRegisterForm')->name('customer.register');
     Route::post('/register', 'Auth\CustomerRegisterController@register')->name('customer.register.submit');
-    Route::get('/', 'CustomerController@index')->name('customer.dashboard');
+    Route::get('/', 'CustomerOrdersController@index');
 });
+Route::get('/userorders','UserOrdersController@index')->name('user.dashboard');
+Route::get('/customerorders','CustomerOrdersController@index')->name('customer.dashboard');

@@ -26,4 +26,11 @@ class Driver extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function customerOrders(){
+        return $this->hasMany('App\CustomerOrder');
+    }
+    public function userOrders(){
+        return $this->hasMany('App\UserOrder');
+    }
 }

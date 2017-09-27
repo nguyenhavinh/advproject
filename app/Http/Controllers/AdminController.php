@@ -29,7 +29,11 @@ class AdminController extends Controller
         $users = User::orderBy('ID','desc')->paginate(5);
         $customers = Customer::orderBy('ID','desc')->paginate(5);
         $drivers = Driver::orderBy('ID','desc')->paginate(5);
-        return view('admin.index')->with('users', $users)->with('customers', $customers)->with('drivers', $drivers);
+        
+        return view('admin.index')
+                                    ->with('users', $users)
+                                    ->with('customers', $customers)
+                                    ->with('drivers', $drivers);
     }
     public function destroyUser($id)
     {

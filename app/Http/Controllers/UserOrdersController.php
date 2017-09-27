@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\UserOrder;
+use DB;
+use Auth;
 
 class UserOrdersController extends Controller
 {
@@ -12,11 +14,19 @@ class UserOrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+     public function __construct()
+    {
+        $this->middleware('auth:user');
+    }
     public function index()
     {
         //
-        $orders = UserOrder::orderBy('created_at','desc')->paginate(5);
-        return view('userorders.index')->with('orders', $orders);
+        $user_id = Auth()->user()->id;
+        $user_name = Auth()->user()->name;
+        $orders = UserOrder::where('user_id', $user_id)->orderBy('created_at','desc')->paginate(5);
+        //$orders = UserOrder::orderBy('created_at','desc')->paginate(5);
+        //return view('userorders.index')->with('orders', $orders);
+        return view('userorders.index')->with('orders', $orders)->with('user_name', $user_name);
     }
 
     /**
@@ -42,11 +52,18 @@ class UserOrdersController extends Controller
             'toAdd' => 'required',
             'time' => 'required'
         ]);
+        $user_id = Auth()->user()->id;
+        $driver = DB::select('SELECT drivers.id, COUNT(user_orders.driver_id) FROM drivers LEFT JOIN user_orders ON drivers.id = user_orders.driver_id 
+                                ORDER BY COUNT(user_orders.driver_id) ASC LIMIT 1');
+        $driver_id = $driver[0]->id;
         // Create new order
+
         $order = new UserOrder;
         $order->fromAdd = $request->input('fromAdd');
         $order->toAdd = $request->input('toAdd');
         $order->time = $request->input('time');
+        $order->user_id = $user_id;
+        $order->driver_id = $driver_id;
         $order->save();
 
         return redirect('/userorders')->with('success', 'Order Created');
@@ -111,6 +128,6 @@ class UserOrdersController extends Controller
     {
         $order = UserOrder::find($id);
         $order->delete();
-        return redirect('/userorders')->with('success', 'Order Removed');
+        return redirect()->route('user.dashboard')->with('success', 'Order Removed');
     }
 }

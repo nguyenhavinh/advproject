@@ -10,4 +10,13 @@ class UserOrder extends Model
     protected $table = 'user_orders';
     // Primary key
     public $primaryKey = 'id';
+
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
+
+    public function driver(){
+        return $this->belongsTo('App\Driver');
+    }
 }
+

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')    
-    <h1>Detail for Order ID: {{$order->id}}</h1>
+    <h1>Detail for Restaurant Order ID: {{$order->id}}</h1>
     
     <table class="table table-striped">
         <thead>
@@ -28,20 +28,13 @@
                 <td>{{$order->created_at}}</td>
             </tr>
             <tr>
-                <th scope="row">By Driver ID</th>
-                <td>{{$order->driver_id}}</td>
+                <th scope="row">By Restaurant ID</th>
+                <td>{{$order->customer_id}}</td>
             </tr>
         </tbody>
     </table>
     <hr>
     <p> 
-        <a href="/customerorders" class="btn btn-default">Go Back</a>
-        <a href="/customerorders/{{$order->id}}/edit" class="btn btn-default">Edit</a>
+        <a href="/driver" class="btn btn-default">Go Back</a>        
     </p>
-        {!!Form::open(['action' => ['CustomerOrdersController@destroy', $order->id], 'method'=> 'POST'])!!}
-            {{Form::hidden('_method', 'DELETE' )}}
-            {{Form::submit('Delete', ['class' => 'btn btn-danger'])}}
-        {!!Form::close()!!}
-    
-
 @endsection

@@ -55,9 +55,9 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li>
+                                    <!--<li>
                                         <a href="{{route('user.dashboard')}}"> Dashboard </a>
-                                    </li>
+                                    </li>-->
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -78,9 +78,9 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li>
+                                    <!--<li>
                                         <a href="{{route('admin.dashboard')}}"> Dashboard </a>
-                                    </li>
+                                    </li>-->
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -100,9 +100,9 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li>
+                                    <!--<li>
                                         <a href="{{route('customer.dashboard')}}"> Dashboard </a>
-                                    </li>
+                                    </li>-->
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -122,9 +122,9 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li>
+                                    <!--<li>
                                         <a href="{{route('driver.dashboard')}}"> Dashboard </a>
-                                    </li>
+                                    </li>-->
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
