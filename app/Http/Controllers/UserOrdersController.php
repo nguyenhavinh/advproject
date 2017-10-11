@@ -20,7 +20,7 @@ class UserOrdersController extends Controller
     }
     public function index()
     {
-        //
+        //        
         $user_id = Auth()->user()->id;
         $user_name = Auth()->user()->name;
         $orders = UserOrder::where('user_id', $user_id)->orderBy('created_at','desc')->paginate(5);
@@ -54,6 +54,7 @@ class UserOrdersController extends Controller
         ]);
         $user_id = Auth()->user()->id;
         $driver = DB::select('SELECT drivers.id, COUNT(user_orders.driver_id) FROM drivers LEFT JOIN user_orders ON drivers.id = user_orders.driver_id 
+                                GROUP by drivers.id
                                 ORDER BY COUNT(user_orders.driver_id) ASC LIMIT 1');
         $driver_id = $driver[0]->id;
         // Create new order

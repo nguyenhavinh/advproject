@@ -11,17 +11,19 @@
 |
 */
 
-Route::get('/', 'PagesController@index');
+
 
 Route::get('/about', 'PagesController@about')->name('home');
-
 Route::get('/careers', 'PagesController@careers');
-
 Route::get('/mycustomers', 'PagesController@mycustomers');
+Route::get('/developerinfo', 'PagesController@developerinfo');
+Route::get('/sitemap', 'PagesController@sitemap');
+Route::get('/contact', 'PagesController@contact');
+Route::get('/charities', 'PagesController@charities');
 
-Route::get('/home', 'HomeController@index');
+Route::post('/email','PagesController@email');
 
-
+Route::get('/', 'PagesController@index')->name('home');
 
 Auth::routes();
 

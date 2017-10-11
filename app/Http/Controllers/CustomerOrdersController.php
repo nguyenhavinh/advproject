@@ -62,6 +62,7 @@ class CustomerOrdersController extends Controller
         // Create new order
         $customer_id = Auth()->user()->id;
         $driver = DB::select('SELECT drivers.id, COUNT(customer_orders.driver_id) FROM drivers LEFT JOIN customer_orders ON drivers.id = customer_orders.driver_id 
+                                GROUP by drivers.id
                                 ORDER BY COUNT(customer_orders.driver_id) ASC LIMIT 1');
 
         $driver_id = $driver[0]->id;

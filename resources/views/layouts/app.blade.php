@@ -10,11 +10,21 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Styles -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/sticky-footer.css') }}" rel="stylesheet">
-        <!-- Scripts -->
+        
+        <!-- CORE CSS -->
+        
+	    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">	   
+          <link href="/css/theme.css" rel="stylesheet">  
+	
+	</style>
+	    <!-- PLUGINS -->
+	    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" rel="stylesheet">
+	    <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css" rel="stylesheet">        
+        
         <script src="{{ asset('js/app.js') }}"></script>
+        
+        
     </head>
     <body>
         <div id="app">
@@ -22,8 +32,10 @@
             <div class='container'>
                 @include('inc.messages')
                 @yield('content')
-            </div>
-            @include('inc.footer')
+            </div>            
         </div>           
-    </body>        
+    </body>
+    <footer>
+        @include('inc.footer')
+    </footer>        
 </html>
